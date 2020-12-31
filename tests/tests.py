@@ -96,7 +96,7 @@ class Settings_Test(unittest.TestCase):
 
     def test1(self):
         # Create object  with default settings
-        settings = Settings("test-settings.cfg")
+        settings = Settings("tests/test-settings.cfg")
 
         self.assertEqual(settings.get_trx_model(), "Kenwood")
         self.assertListEqual(settings.get_vports(), ["COM15", "COM16", "COM17"])

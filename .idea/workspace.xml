@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a2b764c-6213-44d0-8a4a-b8b395e4abbe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Trx-Com-Splitter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trx-Com-Splitter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-settings.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-settings.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +19,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="230" column="17" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
+            <state relative-caret-position="182">
+              <caret line="76" column="19" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="98" column="29" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,6 +66,7 @@
       <find>thread_read</find>
       <find>serial_instance</find>
       <find>alive</find>
+      <find>app</find>
     </findStrings>
     <replaceStrings>
       <replace>(</replace>
@@ -67,6 +84,7 @@
         <option value="$PROJECT_DIR$/logging.conf" />
         <option value="$PROJECT_DIR$/tests.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/tests/tests.py" />
       </list>
     </option>
   </component>
@@ -81,21 +99,32 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Trx-Com-Splitter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Trx-Com-Splitter" type="462c0819:PsiDirectoryNode" />
+              <item name="TrxComAggregator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrxComAggregator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrxComAggregator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrxComAggregator" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrxComAggregator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -107,6 +136,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\software\TrxComAggregator\tests" />
       <recent name="C:\projects\software\Trx-Com-Splitter" />
     </key>
   </component>
@@ -122,7 +152,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python tests.Unittests in tests.py">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Trx-Com-Splitter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,14 +205,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/tests.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app" />
         <item itemvalue="Python tests.Unittests in tests.py" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -201,12 +231,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 10h 00m 05s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 10h 00m 37s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_tests_py - 2020.12.29 at 10h 03m 36s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
@@ -231,6 +255,12 @@
     <history-entry file="Unittests_in_tests_py - 2020.12.29 at 22h 35m 38s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 15h 40m 19s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 15h 40m 37s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -250,14 +280,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6960193" weight="0.3012318" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.694813" visible="true" weight="0.3012318" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.80759954" weight="0.39977604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49819058" weight="0.32922733" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49698433" weight="0.32922733" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.19240049" side_tool="true" visible="true" weight="0.3012318" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.305187" side_tool="true" visible="true" weight="0.3012318" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49577805" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -381,16 +411,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/serial_bridge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="26" />
-          <folding>
-            <element signature="e#211#225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/serial_bridge.py" />
     <entry file="file://C:/Program Files/Python38/Lib/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11539">
@@ -427,20 +448,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests.py">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="105" selection-start-line="105" selection-end-line="105" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="182">
+          <caret line="76" column="19" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
+    <entry file="file://$PROJECT_DIR$/tests/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="230" column="17" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
+        <state relative-caret-position="340">
+          <caret line="98" column="29" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
