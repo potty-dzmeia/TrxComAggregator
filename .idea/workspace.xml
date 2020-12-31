@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a2b764c-6213-44d0-8a4a-b8b395e4abbe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Trx-Com-Splitter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trx-Com-Splitter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-settings.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-settings.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/settings.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,20 +18,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="76" column="19" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="19" />
+            <state relative-caret-position="390">
+              <caret line="135" column="35" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="34">
+                <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="98" column="29" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+            <state relative-caret-position="553">
+              <caret line="118" column="21" lean-forward="true" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -55,7 +69,6 @@
       <find>Redirector</find>
       <find>writer</find>
       <find>with</find>
-      <find>stop</find>
       <find>input</find>
       <find>arg</find>
       <find>args</find>
@@ -67,6 +80,8 @@
       <find>serial_instance</find>
       <find>alive</find>
       <find>app</find>
+      <find>stop</find>
+      <find>vports</find>
     </findStrings>
     <replaceStrings>
       <replace>(</replace>
@@ -83,8 +98,9 @@
         <option value="$PROJECT_DIR$/test_settings.py" />
         <option value="$PROJECT_DIR$/logging.conf" />
         <option value="$PROJECT_DIR$/tests.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/tests/tests.py" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -152,7 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in tests.py">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Trx-Com-Splitter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -211,8 +227,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in tests.py" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python tests.Unittests in tests.py" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -231,24 +247,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 10h 03m 36s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 10h 04m 23s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 11h 10m 40s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 11h 11m 15s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 22h 34m 19s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2020.12.29 at 22h 34m 34s.xml">
-      <configuration name="Unittests in tests.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_tests_py - 2020.12.29 at 22h 34m 54s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
@@ -259,6 +257,24 @@
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_tests_py - 2020.12.31 at 15h 40m 37s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 15h 48m 59s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 15h 54m 30s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 16h 00m 32s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 16h 00m 46s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 16h 01m 23s.xml">
+      <configuration name="Unittests in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_py - 2020.12.31 at 16h 01m 39s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -275,20 +291,20 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27322075" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27322075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.694813" visible="true" weight="0.3012318" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.80759954" weight="0.39977604" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6930036" weight="0.3012318" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.805187" visible="true" weight="0.39977604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49819058" weight="0.32922733" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49698433" weight="0.32922733" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.305187" side_tool="true" visible="true" weight="0.3012318" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49577805" weight="0.32922733" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49758744" weight="0.32922733" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49879372" weight="0.32922733" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49577805" weight="0.32922733" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.19481303" side_tool="true" visible="true" weight="0.39977604" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4951749" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -296,13 +312,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>157</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -441,26 +450,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_settings.py" />
-    <entry file="file://C:/Program Files/Python38/Lib/unittest/case.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevconsole.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="764" selection-start-line="764" selection-end-line="764" />
+        <state relative-caret-position="190">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
+    <entry file="file://C:/Program Files/Python38/Lib/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="76" column="19" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="19" />
+        <state relative-caret-position="198">
+          <caret line="752" selection-start-line="752" selection-end-line="752" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1400975541/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="153" column="4" selection-start-line="153" selection-start-column="4" selection-end-line="153" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="98" column="29" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+        <state relative-caret-position="553">
+          <caret line="118" column="21" lean-forward="true" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="34">
+            <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="135" column="35" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

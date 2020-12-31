@@ -65,7 +65,7 @@ class PortRedirector(object):
             ser = serial.Serial(port=port_name)
             ser.timeout = 1  # big timeout is used to allow the threads to close if needed
             t = threading.Thread(target=self.vport_reader, args=(ser,))
-            t.daemon = True
+            # t.daemon = True
             t.name = 'vport->queue'
             t.start()
             self.threads_vport_reader.append(t)
@@ -76,13 +76,13 @@ class PortRedirector(object):
         trx_ser.timeout = 1  # big timeout is used to allow the threads to close if needed
         trx_ser.apply_settings(settings.get_trx_port_settings())
         self.thread_queue_reader = threading.Thread(target=self.queue_reader, args=(trx_ser,))
-        self.thread_queue_reader.daemon = True
+        # self.thread_queue_reader.daemon = True
         self.thread_queue_reader.name = 'queue->trx_port'
         self.thread_queue_reader.start()
 
         # Start queue_reader threads
         self.thread_trxport_reader = threading.Thread(target=self.trxport_reader, args=(trx_ser, vports,))
-        self.thread_trxport_reader.daemon = True
+        # self.thread_trxport_reader.daemon = True
         self.thread_trxport_reader.name = 'trx_port->vports'
         self.thread_trxport_reader.start()
 
@@ -133,7 +133,7 @@ class PortRedirector(object):
 
         self.alive = False
         vport_instance.close()
-        self.log.debug('Thread END: {}'.format(vport_instance.name))
+        self.log.debug('Thread END')
 
 
     def queue_reader(self, trx_port_instance):
@@ -232,12 +232,14 @@ if __name__ == '__main__':
     print("TRX ComPort is: {}".format(settings.get_trx_port()))
     print("Virtual CommPorts are: {}".format(settings.get_vports()))
     redirector = PortRedirector(settings)
-    redirector.start()
 
     try:
-        while True:
-            sleep(100)
-    except KeyboardInterrupt:
+        redirector.start()
+
+        while redirector.alive:
+            sleep(1)
+    except Exception:
         redirector.stop()
 
+    sleep(1)
     print("73!")

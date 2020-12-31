@@ -108,5 +108,19 @@ class Settings_Test(unittest.TestCase):
         self.assertTrue(settings.get_trx_port_settings()["stopbits"] == 1)
 
 
+    def test2(self):
+        # Create object  with default settings
+        settings = Settings("tests/test-settings2.cfg")
+
+        self.assertEqual(settings.get_trx_model(), "Icom")
+        self.assertListEqual(settings.get_vports(), ["COM2"])
+        self.assertTrue(settings.get_vports_count() == 1)
+        self.assertEqual(settings.get_trx_port(), "COM1")
+        self.assertTrue(settings.get_trx_port_settings()["baudrate"] == 115200)
+        self.assertTrue(settings.get_trx_port_settings()["bytesize"] == 8)
+        self.assertTrue(settings.get_trx_port_settings()["parity"] == "N")
+        self.assertTrue(settings.get_trx_port_settings()["stopbits"] == 1)
+
+
 if __name__ == '__main__':
     unittest.main()
