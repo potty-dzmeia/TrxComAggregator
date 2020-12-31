@@ -121,6 +121,13 @@ class Settings_Test(unittest.TestCase):
         self.assertTrue(settings.get_trx_port_settings()["parity"] == "N")
         self.assertTrue(settings.get_trx_port_settings()["stopbits"] == 1)
 
+        self.assertTrue(settings.get_trx_port_settings()["xonxoff"] == False)
+        self.assertTrue(settings.get_trx_port_settings()["dsrdtr"] == False)
+        self.assertTrue(settings.get_trx_port_settings()["rtscts"] == False)
+        self.assertTrue(settings.get_trx_port_settings()["timeout"] == None)
+        self.assertTrue(settings.get_trx_port_settings()["write_timeout"] == None)
+        self.assertTrue(settings.get_trx_port_settings()["inter_byte_timeout"] == None)
+
 
 if __name__ == '__main__':
     unittest.main()

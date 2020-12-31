@@ -24,23 +24,23 @@ class Settings(object):
 
 
     def get_vports_count(self):
-        return self.app_settings["vPortNames"].__len__()
+        return self.app_settings["vport_names"].__len__()
 
 
     def get_vports(self):
-        return self.app_settings["vPortNames"]
+        return self.app_settings["vport_names"]
 
 
     def get_trx_model(self):
-        return self.app_settings["TRX"]["Model"]
+        return self.app_settings["trx"]["model"]
 
 
     def get_trx_port(self):
-        return self.app_settings["TRX"]["PortName"]
+        return self.app_settings["trx"]["port_name"]
 
 
     def get_trx_port_settings(self):
-        return self.app_settings["TRX"]["PortSettings"]
+        return self.app_settings["trx"]["port_settings"]
 
 
 class PortRedirector(object):
@@ -66,7 +66,7 @@ class PortRedirector(object):
             ser.timeout = 1  # big timeout is used to allow the threads to close if needed
             t = threading.Thread(target=self.vport_reader, args=(ser,))
             # t.daemon = True
-            t.name = 'vport->queue'
+            t.name = 'vport-to-queue'
             t.start()
             self.threads_vport_reader.append(t)
             vports.append(ser)
@@ -77,13 +77,13 @@ class PortRedirector(object):
         trx_ser.apply_settings(settings.get_trx_port_settings())
         self.thread_queue_reader = threading.Thread(target=self.queue_reader, args=(trx_ser,))
         # self.thread_queue_reader.daemon = True
-        self.thread_queue_reader.name = 'queue->trx_port'
+        self.thread_queue_reader.name = 'queue-to-trx_port'
         self.thread_queue_reader.start()
 
         # Start queue_reader threads
         self.thread_trxport_reader = threading.Thread(target=self.trxport_reader, args=(trx_ser, vports,))
         # self.thread_trxport_reader.daemon = True
-        self.thread_trxport_reader.name = 'trx_port->vports'
+        self.thread_trxport_reader.name = 'trx_port-to-vports'
         self.thread_trxport_reader.start()
 
 
