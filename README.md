@@ -2,4 +2,4 @@
 
 Example usage of the TrxComAggregator
 
-![Setup of TrxComAggregator](https://octodex.github.com/images/yaktocat.png)
+![Setup of TrxComAggregator](https://raw.githubusercontent.com/potty-dzmeia/TrxComAggregator/master/TrxComAggregator.jpg)
