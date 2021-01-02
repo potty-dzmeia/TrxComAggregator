@@ -1,5 +1,5 @@
 import unittest
-from app import PortRedirector
+from app import PortAggregator
 from app import Settings
 
 # input  return   leftover
@@ -69,25 +69,25 @@ class PortRedirector_Test(unittest.TestCase):
 
     def test_kenwood(self):
         for test_item in kenwood_transactions:
-            result = PortRedirector._PortRedirector__extract_transactions(test_item[0], "Kenwood")
+            result = PortAggregator._PortAggregator__extract_transactions(test_item[0], "Kenwood")
             self.assertTrue(result == test_item[1])
             self.assertTrue(test_item[0] == test_item[2])
 
     def test_yaesu(self):
         for test_item in yaesu_transactions:
-            result = PortRedirector._PortRedirector__extract_transactions(test_item[0], "Yaesu")
+            result = PortAggregator._PortAggregator__extract_transactions(test_item[0], "Yaesu")
             self.assertTrue(result == test_item[1])
             self.assertTrue(test_item[0] == test_item[2])
 
     def test_elecraft(self):
         for test_item in elecraft_transactions:
-            result = PortRedirector._PortRedirector__extract_transactions(test_item[0], "Elecraft")
+            result = PortAggregator._PortAggregator__extract_transactions(test_item[0], "Elecraft")
             self.assertTrue(result == test_item[1])
             self.assertTrue(test_item[0] == test_item[2])
 
     def test_icom(self):
         for test_item in icom_transactions:
-            result = PortRedirector._PortRedirector__extract_transactions(test_item[0], "Icom")
+            result = PortAggregator._PortAggregator__extract_transactions(test_item[0], "Icom")
             self.assertTrue(result == test_item[1])
             self.assertTrue(test_item[0] == test_item[2])
 

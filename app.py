@@ -43,7 +43,7 @@ class Settings(object):
         return self.app_settings["trx"]["port_settings"]
 
 
-class PortRedirector(object):
+class PortAggregator(object):
 
     def __init__(self, settings):
         self.settings = settings
@@ -102,8 +102,8 @@ class PortRedirector(object):
 
     def vport_reader(self, vport_instance):
         """
-
-        :param vport_instance:
+        Reads data from the vPort. When a complete transaction is read it will add it to the queue.
+        :param vport_instance: vPort instance (must be open)
         :type vport_instance: serial.Serial
         :return:
         """
@@ -138,8 +138,8 @@ class PortRedirector(object):
 
     def queue_reader(self, trx_port_instance):
         """
-
-        :param trx_port_instance:
+        Reads transactions from the queue and sends them to the transceiver
+        :param trx_port_instance: TRX port (must be open)
         :type trx_port_instance: serial.Serial
         :return:
         """
@@ -164,6 +164,14 @@ class PortRedirector(object):
 
 
     def trxport_reader(self, trx_port_instance, vport_instances):
+        """
+        Redirects data coming from the trx_port to all vport_instances
+        :param trx_port_instance: COM port of the TRX (must be open)
+        :type trx_port_instance: serial.Serial
+        :param vport_instances: Virtual COM port instances (must be open)
+        :type vport_instances: list of serial.Serial
+        :return:
+        """
         self.log.debug('Thread START')
 
         while self.alive:
@@ -188,21 +196,21 @@ class PortRedirector(object):
 
 
     @classmethod
-    def __extract_transactions(cls, buffer, trx):
+    def __extract_transactions(cls, buffer, trx_model):
         """
-        Extracts and returns all bytes which form a complete transaction from the "buffer" bytearray. The "buffer" will
+        Extracts and returns all bytes which form a complete transaction from the bytearray "buffer". The "buffer" will
         decrease with the extracted amount of bytes.
 
-        :param buffer: array of byte from which we have to extract all valid transactions.
+        :param buffer: Array of bytes from which we have to extract all valid transactions.
         :type buffer: bytearray
-        :param trx: Brand of transceiver
+        :param trx: Transceiver model
         :type trx: str
         :return: All data up to the last terminating byte (including)
         :rtype: bytearray
         """
         index = -1;
         for i, v in enumerate(reversed(buffer)):
-            if v == cls.terminating_byte[trx]:
+            if v == cls.terminating_byte[trx_model]:
                 index = len(buffer) - i - 1  # index in the original list
                 break;
 
@@ -213,7 +221,6 @@ class PortRedirector(object):
         trans = buffer[:index + 1]
         del buffer[:index + 1]
         return trans
-
 
 
     # Transaction terminating bytes for different transceivers
@@ -231,15 +238,15 @@ if __name__ == '__main__':
     print("Trx-Com-Splitter by LZ1ABC.")
     print("TRX ComPort is: {}".format(settings.get_trx_port()))
     print("Virtual CommPorts are: {}".format(settings.get_vports()))
-    redirector = PortRedirector(settings)
+    aggregator = PortAggregator(settings)
 
     try:
-        redirector.start()
+        aggregator.start()
 
-        while redirector.alive:
+        while aggregator.alive:
             sleep(1)
     except Exception:
-        redirector.stop()
+        aggregator.stop()
 
-    sleep(1)
+    sleep(1) # W8 for all threads to close
     print("73!")
