@@ -9,7 +9,7 @@ logging.config.fileConfig("logging.conf", disable_existing_loggers=False)
 # logger = logging.getLogger(__name__)
 # logger.setLevel(level=logging.DEBUG)
 
-APP_VERSION = "1.1"
+APP_VERSION = "1.2"
 
 class Settings(object):
 

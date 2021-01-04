@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TrxComAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3468">
-              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
+            <state relative-caret-position="51">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -87,8 +87,8 @@
         <option value="$PROJECT_DIR$/TrxPortAggregator.py" />
         <option value="$PROJECT_DIR$/TrxComAggregator.spec" />
         <option value="$PROJECT_DIR$/settings.cfg" />
-        <option value="$PROJECT_DIR$/TrxComAggregator.py" />
         <option value="$PROJECT_DIR$/logging.conf" />
+        <option value="$PROJECT_DIR$/TrxComAggregator.py" />
       </list>
     </option>
   </component>
@@ -581,8 +581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TrxComAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3468">
-          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
+        <state relative-caret-position="51">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
