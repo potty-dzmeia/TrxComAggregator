@@ -6,8 +6,8 @@ import queue
 from time import sleep
 
 logging.config.fileConfig("logging.conf", disable_existing_loggers=False)
-logger = logging.getLogger(__name__)
-logger.setLevel(level=logging.DEBUG)
+# logger = logging.getLogger(__name__)
+# logger.setLevel(level=logging.DEBUG)
 
 APP_VERSION = "1.1"
 
@@ -94,7 +94,6 @@ class PortAggregator(object):
         self.transactions_queue = queue.Queue()
         self.alive = False
         self.log = logging.getLogger('PortAggregator')
-        self.log.setLevel(level=logging.DEBUG)
         self.threads_vport_reader = []
         self.thread_trxport_reader = None
         self.thread_queue_reader = None
@@ -172,7 +171,7 @@ class PortAggregator(object):
                         self.transactions_queue.put(trans)
 
             except Exception as msg:
-                logger.error('{}'.format(msg))
+                self.log.error('{}'.format(msg))
                 break
 
         self.alive = False
@@ -197,7 +196,7 @@ class PortAggregator(object):
             except queue.Empty as msg:
                 continue
             except Exception as msg:
-                logger.error('{}'.format(msg))
+                self.log.error('{}'.format(msg))
                 break
 
         self.alive = False
@@ -229,11 +228,10 @@ class PortAggregator(object):
                         ser.write(data)
 
             except Exception as msg:
-                logger.error('{}'.format(msg))
+                self.log.error('{}'.format(msg))
                 break
 
         self.alive = False
-        trx_port_instance.close()
         self.log.debug('Thread END')
 
 
