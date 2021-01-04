@@ -9,6 +9,7 @@ logging.config.fileConfig("logging.conf", disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 logger.setLevel(level=logging.DEBUG)
 
+APP_VERSION = "1.1"
 
 class Settings(object):
 
@@ -24,23 +25,66 @@ class Settings(object):
 
 
     def get_vports_count(self):
+        """
+
+        :return:
+        :rtype: int
+        """
         return self.app_settings["vport_names"].__len__()
 
 
     def get_vports(self):
+        """
+
+        :return:
+        :rtype: list of str
+        """
         return self.app_settings["vport_names"]
 
 
     def get_trx_model(self):
+        """
+        Returns brand of the transceiver
+        :return:
+        :rtype: str
+        """
         return self.app_settings["trx"]["model"]
 
 
     def get_trx_port(self):
+        """
+        Name for the Com port to which the transceiver is connected
+        :return:
+        :rtype: str
+        """
         return self.app_settings["trx"]["port_name"]
 
 
     def get_trx_port_settings(self):
+        """
+        Com settings which can be directly imported the Serial class
+        :return:
+        :rtype: str
+        """
         return self.app_settings["trx"]["port_settings"]
+
+
+    def get_trx_port_dtr_init_state(self):
+        """
+        Reads the initial state that the DTR pin must be set to
+        :return:
+        :rtype: bool
+        """
+        return self.app_settings["trx"]["dtr_init_state"]
+
+
+    def get_trx_port_rts_init_state(self):
+        """
+        Reads the initial state that the RTS pin must be set to
+        :return:
+        :rtype: bool
+        """
+        return self.app_settings["trx"]["rts_init_state"]
 
 
 class PortAggregator(object):
@@ -49,7 +93,7 @@ class PortAggregator(object):
         self.settings = settings
         self.transactions_queue = queue.Queue()
         self.alive = False
-        self.log = logging.getLogger('PortRedirector')
+        self.log = logging.getLogger('PortAggregator')
         self.log.setLevel(level=logging.DEBUG)
         self.threads_vport_reader = []
         self.thread_trxport_reader = None
@@ -60,27 +104,28 @@ class PortAggregator(object):
         self.alive = True
         vports = []
 
-        # Start vport_reader threads
+        # Start vPORT-->QUEUE threads
         for port_name in settings.get_vports():
             ser = serial.Serial(port=port_name)
-            ser.timeout = 1  # big timeout is used to allow the threads to close if needed
+            ser.timeout = 1  # timeout is used to allow the threads to check for closing flag
             t = threading.Thread(target=self.vport_reader, args=(ser,))
-            # t.daemon = True
             t.name = 'vport-to-queue'
             t.start()
             self.threads_vport_reader.append(t)
             vports.append(ser)
 
-        # Start queue_reader threads
+        # Start QUEUE-->TRX thread
         trx_ser = serial.Serial(port=settings.get_trx_port())
-        trx_ser.timeout = 1  # big timeout is used to allow the threads to close if needed
+        trx_ser.dtr = settings.get_trx_port_dtr_init_state()
+        trx_ser.rts = settings.get_trx_port_rts_init_state()
+        trx_ser.timeout = 1  # timeout is used to allow the threads to check for closing flag
         trx_ser.apply_settings(settings.get_trx_port_settings())
         self.thread_queue_reader = threading.Thread(target=self.queue_reader, args=(trx_ser,))
         # self.thread_queue_reader.daemon = True
         self.thread_queue_reader.name = 'queue-to-trx_port'
         self.thread_queue_reader.start()
 
-        # Start queue_reader threads
+        # Start TRX-->vPORTS thread
         self.thread_trxport_reader = threading.Thread(target=self.trxport_reader, args=(trx_ser, vports,))
         # self.thread_trxport_reader.daemon = True
         self.thread_trxport_reader.name = 'trx_port-to-vports'
@@ -88,7 +133,7 @@ class PortAggregator(object):
 
 
     def stop(self):
-        """Stop redirecting"""
+        """Stop all threads"""
         self.log.debug('stopping')
 
         if self.alive:
@@ -126,7 +171,6 @@ class PortAggregator(object):
                     if len(trans):
                         self.transactions_queue.put(trans)
 
-
             except Exception as msg:
                 logger.error('{}'.format(msg))
                 break
@@ -150,8 +194,6 @@ class PortAggregator(object):
                 trans = self.transactions_queue.get(timeout=1)  # Use timeout so that we can check the self.alive flag
                 self.log.debug("Transaction ---> TRX_port ({}): {}".format(trx_port_instance.name, trans))
                 trx_port_instance.write(trans)
-                trx_port_instance.flush()
-
             except queue.Empty as msg:
                 continue
             except Exception as msg:
@@ -235,18 +277,20 @@ if __name__ == '__main__':
     # Load settings
     settings = Settings()
 
-    print("Trx-Com-Splitter by LZ1ABC.")
-    print("TRX ComPort is: {}".format(settings.get_trx_port()))
-    print("Virtual CommPorts are: {}".format(settings.get_vports()))
+    print("TrxComAggregator v."+APP_VERSION+" by LZ1ABC. To exit press CTRL+C.")
+    print("Using: TRX COM port {} and vCOM ports {}".format(settings.get_trx_port(), settings.get_vports()))
     aggregator = PortAggregator(settings)
 
     try:
         aggregator.start()
-
         while aggregator.alive:
             sleep(1)
-    except Exception:
+    except KeyboardInterrupt:
         aggregator.stop()
+        pass
+    except Exception as msg:
+        aggregator.stop()
+        pass
 
-    sleep(1) # W8 for all threads to close
+    sleep(1)  # Give time for all threads to close and then print 73
     print("73!")

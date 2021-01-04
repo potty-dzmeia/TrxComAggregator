@@ -1,4 +1,4 @@
-#!C:\projects\software\Trx-Com-Splitter\venv\Scripts\python.exe
+#!C:\projects\software\TrxComAggregator\venv\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'future==0.18.2','console_scripts','pasteurize'
 __requires__ = 'future==0.18.2'
 import re

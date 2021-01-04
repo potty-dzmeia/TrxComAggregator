@@ -1,10 +1,9 @@
 # -*- mode: python ; coding: utf-8 -*-
 
 block_cipher = None
-
-
-a = Analysis(['app.py'],
-             pathex=['C:\\projects\\software\\Trx-Com-Splitter'],
+		 
+a = Analysis(['TrxComAggregator.py'],
+             pathex=['C:\\projects\\software\\TrxComAggregator'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -23,7 +22,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='app',
+          name='TrxComAggregator',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -31,3 +30,7 @@ exe = EXE(pyz,
           upx_exclude=[],
           runtime_tmpdir=None,
           console=True )
+
+import shutil
+shutil.copyfile('settings.cfg', '{0}/settings.cfg'.format(DISTPATH))
+shutil.copyfile('logging.conf', '{0}/logging.conf'.format(DISTPATH))

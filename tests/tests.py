@@ -1,6 +1,6 @@
 import unittest
-from app import PortAggregator
-from app import Settings
+from TrxComAggregator import PortAggregator
+from TrxComAggregator import Settings
 
 # input  return   leftover
 kenwood_transactions = [

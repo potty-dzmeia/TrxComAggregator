@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\projects\software\Trx-Com-Splitter\venv"
+VIRTUAL_ENV="C:\projects\software\TrxComAggregator\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
