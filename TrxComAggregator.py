@@ -6,17 +6,15 @@ import queue
 from time import sleep
 
 logging.config.fileConfig("logging.conf", disable_existing_loggers=False)
-# logger = logging.getLogger(__name__)
-# logger.setLevel(level=logging.DEBUG)
+APP_VERSION = "1.3"
 
-APP_VERSION = "1.2"
 
 class Settings(object):
 
-    def __init__(self, settings=None):
+    def __init__(self, settings_file=None):
 
-        if settings:
-            file = settings
+        if settings_file:
+            file = settings_file
         else:
             file = "settings.cfg"
 
@@ -89,8 +87,8 @@ class Settings(object):
 
 class PortAggregator(object):
 
-    def __init__(self, settings):
-        self.settings = settings
+    def __init__(self, in_settings):
+        self.settings = in_settings
         self.transactions_queue = queue.Queue()
         self.alive = False
         self.log = logging.getLogger('PortAggregator')
@@ -123,7 +121,7 @@ class PortAggregator(object):
         trx_ser.dtr = settings.get_trx_port_dtr_init_state()
         trx_ser.rts = settings.get_trx_port_rts_init_state()
         trx_ser.timeout = 1  # Used to allow the threads to check for closing flag
-        # trx_ser.write_timeout = 0.1 # ToDo: check if write timeout is needed
+        # trx_ser.write_timeout = 0.1 # ToDo: investigate if write timeout is needed
         trx_ser.open()
         self.thread_queue_reader = threading.Thread(target=self.queue_reader, args=(trx_ser,))
         # self.thread_queue_reader.daemon = True
@@ -177,8 +175,8 @@ class PortAggregator(object):
                         self.log.debug("Transaction stored in queue: {}".format(trans))
                         self.transactions_queue.put(trans)
 
-            except Exception as msg:
-                self.log.error('{}'.format(msg))
+            except Exception as m:
+                self.log.error('{}'.format(m))
                 break
 
         self.alive = False
@@ -200,10 +198,10 @@ class PortAggregator(object):
                 trans = self.transactions_queue.get(timeout=1)  # Use timeout so that we can check the self.alive flag
                 self.log.debug("Transaction ---> TRX_port ({}): {}".format(trx_port_instance.name, trans))
                 trx_port_instance.write(trans)
-            except queue.Empty as msg:
-                continue
-            except Exception as msg:
-                self.log.error('{}'.format(msg))
+            except queue.Empty:
+                pass
+            except Exception as m:
+                self.log.error('{}'.format(m))
                 break
 
         self.alive = False
@@ -234,10 +232,10 @@ class PortAggregator(object):
                         self.log.debug("TRX --> {}: {}".format(ser.name, data))
                         try:
                             ser.write(data)
-                        except serial.SerialTimeoutException:  # Write timeout
+                        except serial.SerialTimeoutException:  # Probably no program on the other side of the vPort
                             pass
-            except Exception as msg:
-                self.log.error('{}'.format(msg))
+            except Exception as m:
+                self.log.error('{}'.format(m))
                 break
 
         self.alive = False
@@ -252,20 +250,20 @@ class PortAggregator(object):
 
         :param buffer: Array of bytes from which we have to extract all valid transactions.
         :type buffer: bytearray
-        :param trx: Transceiver model
-        :type trx: str
+        :param trx_model: Transceiver model
+        :type trx_model: str
         :return: All data up to the last terminating byte (including)
         :rtype: bytearray
         """
-        index = -1;
+        index = -1
         for i, v in enumerate(reversed(buffer)):
             if v == cls.terminating_byte[trx_model]:
                 index = len(buffer) - i - 1  # index in the original list
-                break;
+                break
 
         # No complete transaction was found
         if index == -1:
-            return bytearray();
+            return bytearray()
 
         trans = buffer[:index + 1]
         del buffer[:index + 1]
@@ -294,10 +292,8 @@ if __name__ == '__main__':
             sleep(1)
     except KeyboardInterrupt:
         aggregator.stop()
-        pass
-    except Exception as msg:
+    except Exception:
         aggregator.stop()
-        pass
 
     sleep(1)  # Give time for all threads to close and then print 73
     print("73!")
