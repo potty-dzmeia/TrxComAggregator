@@ -105,20 +105,26 @@ class PortAggregator(object):
 
         # Start vPORT-->QUEUE threads
         for port_name in settings.get_vports():
-            ser = serial.Serial(port=port_name)
-            ser.timeout = 1  # timeout is used to allow the threads to check for closing flag
+            ser = serial.Serial(port=None)
+            ser.timeout = 1  # Used to allow the threads to check for closing flag
+            ser.write_timeout = 0.1  # Needed in case trying to send data to vPort which is not connected to anything
+            ser.port = port_name
+            ser.open()
             t = threading.Thread(target=self.vport_reader, args=(ser,))
-            t.name = 'vport-to-queue'
+            t.name = "vport-to-queue {}".format(port_name)
             t.start()
             self.threads_vport_reader.append(t)
             vports.append(ser)
 
         # Start QUEUE-->TRX thread
-        trx_ser = serial.Serial(port=settings.get_trx_port())
+        trx_ser = serial.Serial(port=None)
+        trx_ser.port = settings.get_trx_port()
+        trx_ser.apply_settings(settings.get_trx_port_settings())
         trx_ser.dtr = settings.get_trx_port_dtr_init_state()
         trx_ser.rts = settings.get_trx_port_rts_init_state()
-        trx_ser.timeout = 1  # timeout is used to allow the threads to check for closing flag
-        trx_ser.apply_settings(settings.get_trx_port_settings())
+        trx_ser.timeout = 1  # Used to allow the threads to check for closing flag
+        # trx_ser.write_timeout = 0.1 # ToDo: check if write timeout is needed
+        trx_ser.open()
         self.thread_queue_reader = threading.Thread(target=self.queue_reader, args=(trx_ser,))
         # self.thread_queue_reader.daemon = True
         self.thread_queue_reader.name = 'queue-to-trx_port'
@@ -164,10 +170,11 @@ class PortAggregator(object):
                     data = vport_instance.read(1)
 
                 if len(data):
-                    self.log.debug("Bytes read ({}): {}".format(len(data), data))
+                    self.log.debug("vPort ({}) ----> bytes stored in buffer: {}".format(vport_instance.name, data))
                     buffer += bytearray(data)
                     trans = self.__extract_transactions(buffer, self.settings.get_trx_model())
                     if len(trans):
+                        self.log.debug("Transaction stored in queue: {}".format(trans))
                         self.transactions_queue.put(trans)
 
             except Exception as msg:
@@ -223,10 +230,12 @@ class PortAggregator(object):
                     data = trx_port_instance.read(1)
 
                 if len(data):
-                    self.log.debug("Bytes coming from TRX ({}): {}".format(len(data), data))
                     for ser in vport_instances:
-                        ser.write(data)
-
+                        self.log.debug("TRX --> {}: {}".format(ser.name, data))
+                        try:
+                            ser.write(data)
+                        except serial.SerialTimeoutException:  # Write timeout
+                            pass
             except Exception as msg:
                 self.log.error('{}'.format(msg))
                 break

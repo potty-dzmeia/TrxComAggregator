@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/TrxComAggregator.py" line="263" />
+    <bookmark url="file://$PROJECT_DIR$/TrxComAggregator.py" line="272" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a2b764c-6213-44d0-8a4a-b8b395e4abbe" name="Default Changelist" comment="added more fields in the settings file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrxComAggregator.py" beforeDir="false" afterPath="$PROJECT_DIR$/TrxComAggregator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/settings.cfg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,14 +17,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TrxComAggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="373">
+              <caret line="237" column="32" lean-forward="true" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/logging.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -54,7 +65,6 @@
       <find>alive</find>
       <find>app</find>
       <find>stop</find>
-      <find>vports</find>
       <find>deb</find>
       <find>print</find>
       <find>log</find>
@@ -64,6 +74,7 @@
       <find>trx_port_instance</find>
       <find>trx_port_instance.clos</find>
       <find>trx_port_instance.close</find>
+      <find>vports</find>
     </findStrings>
     <replaceStrings>
       <replace>(</replace>
@@ -86,9 +97,9 @@
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/TrxPortAggregator.py" />
         <option value="$PROJECT_DIR$/TrxComAggregator.spec" />
+        <option value="$PROJECT_DIR$/TrxComAggregator.py" />
         <option value="$PROJECT_DIR$/settings.cfg" />
         <option value="$PROJECT_DIR$/logging.conf" />
-        <option value="$PROJECT_DIR$/TrxComAggregator.py" />
       </list>
     </option>
   </component>
@@ -147,7 +158,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.TrxComAggregator">
+  <component name="RunManager" selected="Python.TrxComAggregator (1)">
+    <configuration name="TrxComAggregator (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Trx-Com-Splitter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TrxComAggregator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="TrxComAggregator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Trx-Com-Splitter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -207,10 +239,12 @@
     <list>
       <item itemvalue="Python.TrxComAggregator" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.TrxComAggregator (1)" />
       <item itemvalue="Python tests.Unittests in tests.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TrxComAggregator (1)" />
         <item itemvalue="Python.TrxComAggregator" />
         <item itemvalue="Python tests.Unittests in tests.py" />
         <item itemvalue="Python.test" />
@@ -296,7 +330,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6893848" weight="0.3012318" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6115802" visible="true" weight="0.39977604" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6115802" visible="true" weight="0.37849945" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Python Console" order="6" sideWeight="0.49215922" weight="0.32922733" />
@@ -499,13 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/serial/serialutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5162">
-          <caret line="364" column="17" lean-forward="true" selection-start-line="364" selection-start-column="17" selection-end-line="364" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test-settings.cfg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -517,13 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="16" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/serial/serialwin32.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="40" column="83" lean-forward="true" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
         </state>
       </provider>
     </entry>
@@ -558,13 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TrxComAggregator.spec">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -572,20 +585,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logging.conf">
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/serial/serialutil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        <state relative-caret-position="135">
+          <caret line="96" column="39" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/serial/serialwin32.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="321" selection-start-line="321" selection-end-line="321" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TrxComAggregator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="373">
+          <caret line="237" column="32" lean-forward="true" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logging.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
         </state>
       </provider>
     </entry>
